@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="よろず便利商店の商品棚">
+  <title>よろず便利商店｜商品棚</title>
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;
+      background:#f7f7f5;
+      color:#111;
+    }
+    .wrap{max-width:960px;margin:0 auto;padding:24px 16px 48px}
+    header{margin-bottom:22px}
+    h1{font-size:28px;margin:0 0 8px}
+    .lead{font-size:14px;line-height:1.7;color:#666;margin:0}
+    .notice{
+      margin-top:14px;
+      background:#fff;
+      border:1px solid #e5e5e5;
+      border-radius:12px;
+      padding:10px 12px;
+      font-size:12px;
+      color:#666;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:16px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid #e8e8e8;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 2px 10px rgba(0,0,0,.03);
+    }
+    .image{
+      aspect-ratio:4/3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+      border-bottom:1px solid #eee;
+      padding:16px;
+    }
+    .image img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+    .body{padding:16px}
+    .tag{
+      display:inline-block;
+      font-size:11px;
+      background:#f0f0ed;
+      border-radius:999px;
+      padding:5px 8px;
+      margin-bottom:9px;
+      color:#555;
+    }
+    h2{
+      font-size:19px;
+      line-height:1.45;
+      margin:0 0 8px;
+    }
+    .desc{
+      font-size:14px;
+      line-height:1.75;
+      color:#555;
+      margin:0 0 16px;
+    }
+    .btn{
+      display:block;
+      text-align:center;
+      text-decoration:none;
+      background:#111;
+      color:#fff;
+      font-weight:700;
+      border-radius:12px;
+      padding:14px 16px;
+    }
+    footer{
+      padding-top:28px;
+      text-align:center;
+      color:#777;
+      font-size:11px;
+      line-height:1.7;
+    }
+    @media (min-width:720px){
+      .grid{grid-template-columns:repeat(3,1fr)}
+      .card{display:flex;flex-direction:column}
+      .body{display:flex;flex-direction:column;flex:1}
+      .desc{flex:1}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>よろず便利商店</h1>
+      <p class="lead">Instagramで紹介した便利グッズを、見つけやすくまとめています。</p>
+      <div class="notice">PR：当ページにはアフィリエイト広告を利用する予定です。現在は3商品版のWeb商品棚テスト中です。</div>
+    </header>
+
+    <section id="products" class="grid"></section>
+
+    <footer>
+      商品情報・価格・在庫状況はリンク先で最新情報をご確認ください。<br>
+      © よろず便利商店
+    </footer>
+  </main>
+
+  <script>
+    /*
+      商品追加は、この products 配列に1件追加するだけ。
+      将来的にAI側からこの部分だけ更新しやすい構造にしています。
+    */
+    const products = [
+      {
+        name: "サンワ 3in1充電スタンド 700-WLC006",
+        short: "iPhone・Apple Watch・AirPodsをまとめて置ける、デスク周りをすっきりさせたい人向けの3in1充電スタンド。",
+        image: "https://image.rakuten.co.jp/sanwadirect/cabinet/item_rank2025/700-wlc006_r1.jpg",
+        url: "https://item.rakuten.co.jp/sanwadirect/700-wlc006/",
+        shop: "楽天市場"
+      },
+      {
+        name: "Anker 523 Charger (Nano 3, 47W)",
+        short: "コンパクトなのにUSB-Cを2ポート搭載。スマホやタブレットを2台同時に充電したいときに便利。",
+        image: "https://image.rakuten.co.jp/anker/cabinet/images/09779934/a2039_1.jpg",
+        url: "https://item.rakuten.co.jp/anker/a2039/",
+        shop: "楽天市場"
+      },
+      {
+        name: "サンワ モバイル電源タップ 700-TAP081",
+        short: "巻き取り式コードとUSB-C・USB-A・ACコンセントをひとまとめ。出張や旅行で荷物を減らしたい人向け。",
+        image: "https://tshop.r10s.jp/sanwadirect/cabinet/7/700-tap081.jpg",
+        url: "https://item.rakuten.co.jp/sanwadirect/700-tap081/",
+        shop: "楽天市場"
+      }
+    ];
+
+    const root = document.getElementById("products");
+
+    products.forEach((p) => {
+      const card = document.createElement("article");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="image">
+          <img src="${p.image}" alt="${p.name}" loading="lazy">
+        </div>
+        <div class="body">
+          <span class="tag">${p.shop}</span>
+          <h2>${p.name}</h2>
+          <p class="desc">${p.short}</p>
+          <a class="btn" href="${p.url}" target="_blank" rel="sponsored noopener">商品を見る</a>
+        </div>
+      `;
+      root.appendChild(card);
+    });
+  </script>
+</body>
+</html>
