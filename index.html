@@ -12,12 +12,13 @@ const products=[
 {name:"Anker 523 Charger (Nano 3, 47W)",short:"コンパクトなのにUSB-Cを2ポート搭載。スマホやタブレットを2台同時に充電したいときに便利。",image:"https://image.rakuten.co.jp/anker/cabinet/images/09779934/a2039_1.jpg",url:"https://a.r10.to/hghO13",shop:"楽天市場"},
 {name:"サンワ モバイル電源タップ 700-TAP081",short:"巻き取り式コードとUSB-C・USB-A・ACコンセントをひとまとめ。出張や旅行で荷物を減らしたい人向け。",image:"https://tshop.r10s.jp/sanwadirect/cabinet/7/700-tap081.jpg",url:"https://a.r10.to/h5Lv4k",shop:"楽天市場"},
 {name:"山崎実業 tower マグネットセラミックダンボールカッター",short:"玄関扉や冷蔵庫などにマグネットで貼って収納。荷物が届いたときにサッと使える、コンパクトなセラミック刃の段ボールカッター。",image:"https://image.rakuten.co.jp/roomy/cabinet/zakka/ymz_f4/ymz1072-sq018-0_2.jpg",url:"https://a.r10.to/hYGmu6",shop:"楽天市場"},
-{
-  name: "サンワ デスク下収納ボックス 100-KB025",
-  short: "デスク天板の裏に後付けできる浅型の収納ボックス。A4書類や小物をしまって、机の上と足元をすっきり整理できます。",
-  image: "https://prcdn.freetls.fastly.net/release_image/11495/5919/11495-5919-31f5bf4f85b8850af2008e793bc36580-500x500.jpg",
-  url: "https://a.r10.to/hgZBGG",
-  shop: "楽天市場"
-}
-const root=document.getElementById("products");products.forEach(p=>{const card=document.createElement("article");card.className="card";card.innerHTML=`<div class="image"><img src="${p.image}" alt="${p.name}" loading="lazy"></div><div class="body"><span class="tag">${p.shop}</span><h2>${p.name}</h2><p class="desc">${p.short}</p><a class="btn" href="${p.url}" target="_blank" rel="sponsored noopener">商品を見る</a></div>`;root.appendChild(card)});
+{name:"サンワ デスク下収納ボックス 100-KB025",short:"デスク天板の裏に後付けできる浅型の収納ボックス。A4書類や小物をしまって、机の上と足元をすっきり整理できます。",image:"https://prcdn.freetls.fastly.net/release_image/11495/5919/11495-5919-31f5bf4f85b8850af2008e793bc36580-500x500.jpg",url:"https://a.r10.to/hgZBGG",shop:"楽天市場"}
+];
+const root=document.getElementById("products");
+products.forEach(p=>{
+  const card=document.createElement("article");
+  card.className="card";
+  card.innerHTML=`<div class="image"><img src="${p.image}" alt="${p.name}" loading="lazy"></div><div class="body"><span class="tag">${p.shop}</span><h2>${p.name}</h2><p class="desc">${p.short}</p><a class="btn" href="${p.url}" target="_blank" rel="sponsored noopener">商品を見る</a></div>`;
+  root.appendChild(card);
+});
 </script></body></html>
