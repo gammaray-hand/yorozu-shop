@@ -52,7 +52,7 @@ products.forEach(p=>{
 });
 }
 
-fetch("./data/products.json")
+fetch("./data/products.json",{cache:"no-store"})
   .then(response=>{
     if(!response.ok) throw new Error(`商品データ取得失敗: ${response.status}`);
     return response.json();
