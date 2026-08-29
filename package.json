@@ -1,0 +1,9 @@
+{
+  "name": "yorozu-shop",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "check:live": "node scripts/check-live.mjs"
+  }
+}
