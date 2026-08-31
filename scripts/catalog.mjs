@@ -17,8 +17,8 @@ export function validateProducts(products) {
         errors.push(`${label}: ${field} が空です。`);
       }
     }
-    if (product.url && !isRakutenAffiliateUrl(product.url)) {
-      errors.push(`${label}: url は楽天公式のアフィリエイトURLではありません。`);
+    if (product.url && !isSupportedAffiliateUrl(product.url)) {
+      errors.push(`${label}: url は対応済みのアフィリエイトURLではありません。`);
     }
     if (product.image && !product.image.startsWith("https://")) {
       errors.push(`${label}: image は https URL にしてください。`);
@@ -31,13 +31,22 @@ export function validateProducts(products) {
   return errors;
 }
 
-function isRakutenAffiliateUrl(value) {
+function isSupportedAffiliateUrl(value) {
   try {
     const url = new URL(value);
-    return url.protocol === "https:" && (
+    if (url.protocol !== "https:") return false;
+
+    const rakuten = (
       (url.hostname === "a.r10.to" && /^\/[A-Za-z0-9]+$/.test(url.pathname)) ||
       (url.hostname === "hb.afl.rakuten.co.jp" && url.pathname.startsWith("/hgc/"))
     );
+    if (rakuten) return true;
+
+    if (url.hostname === "px.a8.net" && url.pathname === "/svt/ejp") {
+      const redirect = new URL(url.searchParams.get("a8ejpredirect") ?? "");
+      return Boolean(url.searchParams.get("a8mat")) && redirect.protocol === "https:";
+    }
+    return false;
   } catch {
     return false;
   }
