@@ -4,188 +4,215 @@
     "short": "iPhone・Apple Watch・AirPodsをまとめて置ける、デスク周りをすっきりさせたい人向けの3in1充電スタンド。",
     "image": "https://prcdn.freetls.fastly.net/release_image/11495/5125/11495-5125-61615f4a26eff512fb7cbd5ce09bf9a5-1600x1600.jpg",
     "url": "https://a.r10.to/hRzCrW",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "gadget"
   },
   {
     "name": "Anker 523 Charger (Nano 3, 47W)",
     "short": "コンパクトなのにUSB-Cを2ポート搭載。スマホやタブレットを2台同時に充電したいときに便利。",
     "image": "https://image.rakuten.co.jp/anker/cabinet/images/09779934/a2039_1.jpg",
     "url": "https://a.r10.to/hghO13",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "gadget"
   },
   {
     "name": "サンワ モバイル電源タップ 700-TAP081",
     "short": "巻き取り式コードとUSB-C・USB-A・ACコンセントをひとまとめ。出張や旅行で荷物を減らしたい人向け。",
     "image": "https://tshop.r10s.jp/sanwadirect/cabinet/7/700-tap081.jpg",
     "url": "https://a.r10.to/h5Lv4k",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "gadget"
   },
   {
     "name": "山崎実業 tower マグネットセラミックダンボールカッター",
     "short": "玄関扉や冷蔵庫などにマグネットで貼って収納。荷物が届いたときにサッと使える、コンパクトなセラミック刃の段ボールカッター。",
     "image": "https://image.rakuten.co.jp/roomy/cabinet/zakka/ymz_f4/ymz1072-sq018-0_2.jpg",
     "url": "https://a.r10.to/hYGmu6",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "home"
   },
   {
     "name": "サンワ デスク下収納ボックス 100-KB025",
     "short": "デスク天板の裏に後付けできる浅型の収納ボックス。A4書類や小物をしまって、机の上と足元をすっきり整理できます。",
     "image": "https://prcdn.freetls.fastly.net/release_image/11495/5919/11495-5919-31f5bf4f85b8850af2008e793bc36580-500x500.jpg",
     "url": "https://a.r10.to/hgZBGG",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "desk"
   },
   {
     "name": "UGREEN 65W 巻き取り式 急速充電器",
     "short": "最大65W出力で、巻き取り式USB-Cケーブルを本体に内蔵。USB-C・USB-Aを含む3ポートで、旅行や出張でもケーブル周りをすっきりまとめられます。",
     "image": "https://image.rakuten.co.jp/ugreen-gear/cabinet/biiino/item/s-image-2/20250826153640_1_1.jpg",
     "url": "https://a.r10.to/hP6vyQ",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "gadget"
   },
   {
     "name": "山崎実業 tower マグネット折り畳みハンガー",
     "short": "玄関扉や冷蔵庫などに磁石で取り付け、使うときだけ開ける折り畳みハンガー。コートやバッグの一時掛け、室内干しスペースを手軽に増やせます。",
     "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/roomy/cabinet/500cart_all/500cart_11g/p5-6/ymz7202-py00c-0_gt02.jpg",
     "url": "https://a.r10.to/hPJKtr",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "home"
   },
   {
     "name": "エレコム 折りたたみノートPCスタンド PCA-LTSH8WH",
     "short": "8段階で角度を調整でき、約9.5cm高くできる折り畳み式ノートPCスタンド。姿勢や目線を整えつつ、持ち運びや収納もしやすい一台です。",
     "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/elecom/cabinet/s500_29/pca-ltsh8wh_03r.jpg",
     "url": "https://a.r10.to/hP9iEK",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "desk"
   },
   {
     "name": "PANP RIDE 電動空気入れ",
     "short": "空気圧を設定してボタンを押すだけで使える充電式の電動空気入れ。自転車やボールなどの日常の空気入れを手軽にします。",
     "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/anago-fisheries/cabinet/20260803ride.jpg",
     "url": "https://a.r10.to/hktBew",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "outdoor"
   },
   {
     "name": "GreenPan メイフラワー フライパン 26cm",
     "short": "フッ素樹脂を使わないセラミックコーティングと天然木ハンドルを組み合わせた、IH・ガス火対応の26cmフライパン。",
     "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/roomy/cabinet/500cart_all/500cart_11g/p10n-7/yyt5221-rs00a-0_gt01.jpg",
     "url": "https://a.r10.to/h5tBsm",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "home"
   },
   {
     "name": "PENDORA 36E 電動精密ドライバー",
     "short": "36in1／30ビットの構成を備えた充電式の精密ドライバーセット。小型家電やガジェットの細かなねじ作業を効率化します。",
     "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/brightdiystore/cabinet/12201739/12428472/12428475/pendora36e.jpg",
     "url": "https://a.r10.to/hg2mef",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "gadget"
   },
   {
     "name": "NEWYES DIYスマート関数電卓",
     "short": "手書きボードと関数電卓を一体化。計算しながらメモや式を書き留めたい学習・仕事の場面に便利です。",
     "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/newyes/cabinet/ab0607/188888.jpg",
     "url": "https://a.r10.to/hPloKD",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "desk"
   },
   {
     "name": "浮かせるポリ袋ホルダー UKIUKI",
     "short": "吸盤でシンク周りに浮かせて設置できる日本製ポリ袋ホルダー。調理中の生ごみを手元でまとめ、作業台を広く使えます。",
     "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/hassho/cabinet/plasticbagholder/phu-01s_700.jpg",
     "url": "https://a.r10.to/hgI8dz",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "home"
   },
   {
     "name": "Giaretti 自動ビンオープナー GR-12K",
     "short": "ボタン操作で瓶のふたを自動開閉する電動オープナー。固いふたを開ける負担を減らしたいときに役立ちます。",
     "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/infomart/cabinet/compass1673681316.jpg",
     "url": "https://a.r10.to/h5JucA",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "home"
   },
   {
     "name": "サンワダイレクト デスクワゴン 100-DESKF068",
     "short": "幅60cm・奥行30cmのキャスター付き2段ワゴン。可動棚でデスク下の書類や周辺機器をまとめて整理できます。",
     "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/sanwadirect/cabinet/1/100-deskf068.jpg",
     "url": "https://a.r10.to/hPUqdm",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "desk"
   },
   {
     "name": "サンワダイレクト デスク下収納トレー 100-UDS007",
     "short": "デスク天板の裏へねじ固定するB5対応トレー。リモコンや文房具などの小物を机上から移して整理できます。",
     "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/sanwadirect/cabinet/1/100-uds007.jpg",
     "url": "https://a.r10.to/h2qyyn",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "desk"
   },
   {
     "name": "山崎実業 tower テーブル横バスケット",
     "short": "テーブルやデスクの横へ取り付け、タブレット・調味料・小物などをまとめられる省スペース収納バスケット。",
     "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/roomy/cabinet/500cart_all/500cart_11g/p5-7/ymz1082-rs03e-0_gt01.jpg",
     "url": "https://a.r10.to/hgugFt",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "desk"
   },
   {
     "name": "サンワダイレクト デスク下収納ラック 200-CB050",
     "short": "幅40cmのクランプ式ラック。電源タップやルーター、ケーブル類をデスク下へまとめて配線周りを整えます。",
     "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/sanwadirect/cabinet/2/200-cb050.jpg",
     "url": "https://a.r10.to/h5Bttl",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "desk"
   },
   {
     "name": "粒取り名人 NIPPON",
     "short": "とうもろこしの粒を芯からまとめて外せる日本製のコーンピーラー。下ごしらえを手早く進めたいときに便利です。",
     "image": "https://thumbnail.image.rakuten.co.jp/@0_mall/hatsumeiya/cabinet/tramd/tsbutori/imgrc0076841606.jpg",
     "url": "https://a.r10.to/hg3HEt",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "home"
   },
   {
     "name": "首と肩がホッとする枕PLUS",
     "short": "首と肩を40度で15分間じんわり温める温熱機能付き枕。首・肩を包み込み、就寝前のリラックスタイムを支えます。",
     "image": "https://cdn.shopify.com/s/files/1/0562/8844/4621/files/OGP_hotplus_01.png?v=1740452598",
     "url": "https://px.a8.net/svt/ejp?a8mat=4BAB1C+BFZZEA+573A+BW8O2&a8ejpredirect=https://survaq-store.com/products/neck-hot-pillow-plus",
-    "shop": "公式サイト"
+    "shop": "公式サイト",
+    "category": "home"
   },
   {
     "name": "Vacuum Pro 真空吸着式スマホホルダー",
     "short": "平滑面に置くと自動で真空吸着し、スマホを固定できるワイヤレス充電対応ホルダー。車内やデスクなど好きな場所で使えます。",
     "image": "https://www.brightdiy.jp/cdn/shop/files/0404.png?v=1745563945",
     "url": "https://px.a8.net/svt/ejp?a8mat=4BAB1D+9VFSXE+5A3M+BW8O2&a8ejpredirect=https://www.brightdiy.jp/products/vacuumpro?utm_source=chatgpt.com",
-    "shop": "公式サイト"
+    "shop": "公式サイト",
+    "category": "gadget"
   },
   {
     "name": "OUTDOOR LIGHT 折りたたみ式LEDキャンプライト",
     "short": "4枚の発光パネルと底部ライトを備えた充電式LEDライト。置く・吊るす・手持ちに対応し、アウトドアや停電時にも使えます。",
     "image": "https://www.brightdiy.jp/cdn/shop/products/12_1352cf49-8f98-4c2e-9a29-5336ea4d14cb.jpg?v=1681628599",
     "url": "https://px.a8.net/svt/ejp?a8mat=4BAB1D+9VFSXE+5A3M+BW8O2&a8ejpredirect=https://www.brightdiy.jp/products/outdoorlight",
-    "shop": "公式サイト"
+    "shop": "公式サイト",
+    "category": "outdoor"
   },
   {
     "name": "サンワダイレクト 充電式 電動エアダスター 200-CDADE002",
     "short": "コンパクトな充電式電動エアダスター。PCやデスク周りのほこりを吹き飛ばし、繰り返し使えます。",
     "image": "https://shop.r10s.jp/sanwadirect/cabinet/2/200-cdade002.jpg",
     "url": "https://a.r10.to/hPeiE0",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "gadget"
   },
   {
     "name": "サンワダイレクト 拡張テーブル 100-DESKF047",
     "short": "デスクに作業スペースをプラス。高さを7段階で調整でき、ケーブルトレーも備えた拡張テーブルです。",
     "image": "https://shop.r10s.jp/sanwadirect/cabinet/1/100-deskf047.jpg",
     "url": "https://a.r10.to/h5sT8h",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "desk"
   },
   {
     "name": "サンワダイレクト 折りたたみデスク 100-DESKH075",
     "short": "使うときだけサッと広げられる折りたたみデスク。使わないときは奥行約6cmにたたんで省スペースに収納できます。",
     "image": "https://shop.r10s.jp/sanwadirect/cabinet/1/100-deskh075.jpg",
     "url": "https://a.r10.to/hPb8cW",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "desk"
   },
   {
     "name": "センサー式 自動開閉ゴミ箱 14L",
     "short": "手をかざすだけで約0.3秒で自動オープン。直接ふたに触れずに使える14Lのセンサー式ゴミ箱です。",
     "image": "https://shop.r10s.jp/tosle/cabinet/seikatu/sensordust/imgrc0106750109.jpg",
     "url": "https://a.r10.to/hP8y5l",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "home"
   },
   {
     "name": "サンワダイレクト 小物トレー 100-MR203",
     "short": "クランプでデスクへ取り付け、モニター下や机下の空間を収納に活用できるスチール製トレー。小物やケーブル、電源タップをまとめて整理できます。",
     "image": "https://shop.r10s.jp/sanwadirect/cabinet/1/100-mr203.jpg",
     "url": "https://a.r10.to/h5eYei",
-    "shop": "楽天市場"
+    "shop": "楽天市場",
+    "category": "desk"
   }
 ]
