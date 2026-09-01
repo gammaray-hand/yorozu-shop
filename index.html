@@ -13,6 +13,11 @@ header{margin-bottom:22px}
 h1{font-size:28px;margin:0 0 8px}
 .lead{font-size:14px;line-height:1.7;color:#666;margin:0}
 .notice{margin-top:14px;background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:10px 12px;font-size:12px;color:#666}
+.filters{display:flex;gap:8px;overflow-x:auto;margin:0 0 16px;padding:0 0 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.filters::-webkit-scrollbar{display:none}
+.filter-btn{flex:0 0 auto;min-height:44px;border:1px solid #d8d8d4;border-radius:999px;padding:10px 14px;background:#fff;color:#333;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.filter-btn[aria-pressed="true"]{background:#111;border-color:#111;color:#fff}
+.filter-btn:focus-visible{outline:3px solid #9cc2ff;outline-offset:2px}
 .grid{display:grid;grid-template-columns:1fr;gap:16px}
 .card{background:#fff;border:1px solid #e8e8e8;border-radius:18px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.03)}
 .image{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid #eee;padding:16px}
@@ -38,12 +43,22 @@ footer{padding-top:28px;text-align:center;color:#777;font-size:11px;line-height:
 <p class="lead">Instagramで紹介した便利グッズを、見つけやすくまとめています。</p>
 <div class="notice">PR：当ページにはアフィリエイト広告を利用しています。現在はWeb商品棚の実運用テスト中です。</div>
 </header>
+<nav class="filters" aria-label="商品カテゴリ">
+  <button class="filter-btn" type="button" data-category="all" aria-pressed="true">すべて</button>
+  <button class="filter-btn" type="button" data-category="desk" aria-pressed="false">デスク・仕事</button>
+  <button class="filter-btn" type="button" data-category="gadget" aria-pressed="false">充電・ガジェット</button>
+  <button class="filter-btn" type="button" data-category="home" aria-pressed="false">キッチン・暮らし</button>
+  <button class="filter-btn" type="button" data-category="outdoor" aria-pressed="false">外出・アウトドア</button>
+</nav>
 <section id="products" class="grid"></section>
 <footer>商品情報・価格・在庫状況はリンク先で最新情報をご確認ください。<br>© よろず便利商店</footer>
 </main>
 <script>
 const root=document.getElementById("products");
+const filterButtons=[...document.querySelectorAll(".filter-btn")];
+let allProducts=[];
 function render(products){
+root.replaceChildren();
 products.forEach(p=>{
   const card=document.createElement("article");
   card.className="card";
@@ -52,12 +67,26 @@ products.forEach(p=>{
 });
 }
 
+function selectCategory(category){
+  filterButtons.forEach(button=>{
+    button.setAttribute("aria-pressed",String(button.dataset.category===category));
+  });
+  render(category==="all"?allProducts:allProducts.filter(product=>product.category===category));
+}
+
+filterButtons.forEach(button=>{
+  button.addEventListener("click",()=>selectCategory(button.dataset.category));
+});
+
 fetch("./data/products.json",{cache:"no-store"})
   .then(response=>{
     if(!response.ok) throw new Error(`商品データ取得失敗: ${response.status}`);
     return response.json();
   })
-  .then(render)
+  .then(products=>{
+    allProducts=products;
+    selectCategory("all");
+  })
   .catch(error=>{
     console.error(error);
     root.innerHTML='<p class="notice">商品情報を読み込めませんでした。時間をおいて再度お試しください。</p>';
