@@ -1,4 +1,4 @@
-const requiredFields = ["name", "short", "image", "url", "shop"];
+const requiredFields = ["name", "short", "image", "url", "shop", "category"];\nconst supportedCategories = new Set(["desk", "gadget", "home", "outdoor"]);
 
 export function validateProducts(products) {
   const errors = [];
@@ -23,7 +23,7 @@ export function validateProducts(products) {
     if (product.image && !product.image.startsWith("https://")) {
       errors.push(`${label}: image は https URL にしてください。`);
     }
-    if (names.has(product.name)) errors.push(`${label}: 商品名が重複しています。`);
+    if (product.category && !supportedCategories.has(product.category)) {\n      errors.push(`${label}: category が未対応です。`);\n    }\n    if (names.has(product.name)) errors.push(`${label}: 商品名が重複しています。`);
     if (urls.has(product.url)) errors.push(`${label}: 商品リンクが重複しています。`);
     names.add(product.name);
     urls.add(product.url);
