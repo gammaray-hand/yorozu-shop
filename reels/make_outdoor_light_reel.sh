@@ -33,7 +33,7 @@ for i in "${!images[@]}"; do
     -f lavfi -t "$duration" -i anullsrc=channel_layout=stereo:sample_rate=48000 \
     -filter_complex "color=c=#0b1812:s=1080x1920:r=30[bg];[0:v]scale=1040:1280:force_original_aspect_ratio=decrease[img];[bg][img]overlay=(W-w)/2:160,drawtext=fontfile='${font}':text='${texts[$i]}':fontcolor=white:fontsize=${font_sizes[$i]}:x=(w-text_w)/2:y=1440:box=1:boxcolor=#000000B0:boxborderw=28,format=yuv420p[v]" \
     -map '[v]' -map 1:a \
-    -c:v libx264 -preset medium -crf 18 -r 30 \
+    -c:v libx264 -preset medium -crf 28 -r 30 \
     -c:a aac -b:a 128k -ar 48000 -ac 2 \
     -movflags +faststart -shortest "reel_segment_${n}.mp4"
   printf "file '%s'\n" "reel_segment_${n}.mp4" >> reel_concat.txt
