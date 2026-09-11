@@ -222,5 +222,29 @@
     "url": "https://a.r10.to/h5XfQv",
     "shop": "楽天市場",
     "category": "outdoor"
+  },
+  {
+    "name": "AIRHOOD WIRED ポータブルレンジフード",
+    "short": "卓上調理などで発生する煙・油汚れ・においを吸引するポータブルレンジフード。キッチン周りへの広がりを抑えたい場面に役立ちます。",
+    "image": "https://www.brightdiy.jp/cdn/shop/files/IMG_4840_red.jpg?v=1713448218",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4BAB1D+9VFSXE+5A3M+BW8O2&a8ejpredirect=https://www.brightdiy.jp/products/airhood-wired",
+    "shop": "公式サイト",
+    "category": "home"
+  },
+  {
+    "name": "JIMI Handscale 荷物用デジタルはかり",
+    "short": "スーツケースなどの荷物を持ち上げて重さを確認できるデジタルはかり。旅行前の重量オーバー確認を手軽にします。",
+    "image": "https://www.brightdiy.jp/cdn/shop/files/SPF_11_1_1.png?v=1729610417",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4BAB1D+9VFSXE+5A3M+BW8O2&a8ejpredirect=https://www.brightdiy.jp/products/jimihandscale",
+    "shop": "公式サイト",
+    "category": "outdoor"
+  },
+  {
+    "name": "Hanboost X-Magic Cube マグネタイザー",
+    "short": "ドライバーなどの工具を約1秒で磁化・消磁できるマグネタイザー。回転式の本体はビットや小さなねじの収納にも使えます。",
+    "image": "https://www.brightdiy.jp/cdn/shop/files/SNY00195.jpg?v=1714287965",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4BAB1D+9VFSXE+5A3M+BW8O2&a8ejpredirect=https://www.brightdiy.jp/products/xmagiccube",
+    "shop": "公式サイト",
+    "category": "gadget"
   }
 ]
