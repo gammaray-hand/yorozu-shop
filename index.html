@@ -102,21 +102,59 @@ h1{
   font-weight:700;
   letter-spacing:.08em;
 }
-.featured-copy{
-  margin:0;
-  font-family:"Yu Mincho",YuMincho,"Hiragino Mincho ProN",serif;
-  font-size:21px;
+.featured-product{
+  display:inline-flex;
+  flex-wrap:wrap;
+  gap:5px 11px;
+  align-items:baseline;
+  padding-bottom:4px;
+  border-bottom:1px solid var(--line-dark);
+  color:var(--ink);
+  font-size:18px;
+  font-weight:700;
   line-height:1.55;
-  letter-spacing:.05em;
+  letter-spacing:.02em;
+  text-decoration:none;
+}
+.featured-product:hover,.featured-product:focus-visible{color:var(--rust)}
+.featured-number{
+  color:var(--rust);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:.12em;
+  white-space:nowrap;
+}
+.featured-comment{
+  margin:8px 0 0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.7;
+  letter-spacing:.04em;
+}
+.featured-side{
+  display:grid;
+  gap:11px;
+  justify-items:end;
 }
 .featured-byline{
-  margin:0 0 2px;
+  margin:0;
   color:var(--muted);
   font-size:11px;
   letter-spacing:.08em;
   white-space:nowrap;
 }
-.handwriting-slot{display:none}
+.featured-jump{
+  padding-bottom:2px;
+  border-bottom:1px solid var(--rust);
+  color:var(--rust);
+  font-size:12px;
+  letter-spacing:.06em;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.featured-jump::after{content:" ↓"}
+.featured-jump:hover,.featured-jump:focus-visible{color:var(--ink);border-color:var(--ink)}
 .filters{
   display:flex;
   align-items:stretch;
@@ -185,6 +223,7 @@ h1{
   gap:30px;
   padding:28px 0;
   border-bottom:1px solid var(--line);
+  scroll-margin-top:20px;
 }
 .product-media{
   position:relative;
@@ -231,6 +270,16 @@ h1{
   font-size:13px;
   line-height:1.85;
 }
+.staff-note{
+  margin:0 0 11px;
+  padding:7px 10px;
+  border-left:1px solid var(--line-dark);
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.75;
+  letter-spacing:.04em;
+}
+.staff-note:empty{display:none}
 .product-link{
   display:flex;
   align-items:center;
@@ -272,8 +321,9 @@ footer{
   .shelf-number{min-width:40px;font-size:9px}
   .shelf-number strong{font-size:14px}
   .featured{grid-template-columns:1fr;padding:18px 22px 19px}
-  .featured-copy{font-size:18px}
-  .featured-byline{text-align:right}
+  .featured-product{font-size:16px}
+  .featured-side{display:flex;align-items:center;justify-content:space-between;width:100%;gap:16px}
+  .featured-byline{text-align:left}
   .filters{padding:0 22px}
   .filter-btn{min-height:53px;padding-right:16px;padding-left:16px;font-size:12px}
   .filter-btn:first-child{padding-left:3px;padding-right:21px}
@@ -325,10 +375,16 @@ footer{
   <section class="featured" aria-labelledby="featured-title">
     <div>
       <p id="featured-title" class="featured-label">本日の店員のおすすめ</p>
-      <p class="featured-copy">出張先、コンセント足りなくない？</p>
-      <span class="handwriting-slot" data-handwriting-slot="featured" aria-hidden="true"></span>
+      <a class="featured-product" href="#shelf-01" data-featured-target="shelf-01">
+        <span class="featured-number">棚 01</span>
+        <span>サンワ 3in1充電スタンド 700-WLC006</span>
+      </a>
+      <p class="featured-comment">「出張先、コンセント足りなくない？」</p>
     </div>
-    <p class="featured-byline">— Webデザイン担当</p>
+    <div class="featured-side">
+      <p class="featured-byline">— Webデザイン担当</p>
+      <a class="featured-jump" href="#shelf-01" data-featured-target="shelf-01">棚01を見る</a>
+    </div>
   </section>
 
   <nav class="filters" aria-label="商品カテゴリ">
@@ -383,8 +439,10 @@ function render(products){
   root.replaceChildren();
   products.forEach(product=>{
     const originalIndex=allProducts.indexOf(product)+1;
+    const shelfId=`shelf-${String(originalIndex).padStart(2,"0")}`;
     const article=document.createElement("article");
     article.className="product";
+    article.id=shelfId;
     article.innerHTML=`
       <div class="product-media">
         <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy">
@@ -397,7 +455,7 @@ function render(products){
         </div>
         <h3>${escapeHtml(product.name)}</h3>
         <p class="product-desc">${escapeHtml(product.short)}</p>
-        <span class="handwriting-slot" data-handwriting-slot="product" aria-hidden="true"></span>
+        <p class="staff-note" data-handwriting-slot="product"></p>
         <a class="product-link" href="${escapeHtml(product.url)}" target="_blank" rel="sponsored noopener">商品を見る</a>
       </div>`;
     root.appendChild(article);
@@ -415,6 +473,14 @@ function selectCategory(category){
 
 filterButtons.forEach(button=>{
   button.addEventListener("click",()=>selectCategory(button.dataset.category));
+});
+
+document.querySelectorAll("[data-featured-target]").forEach(link=>{
+  link.addEventListener("click",event=>{
+    event.preventDefault();
+    selectCategory("all");
+    document.getElementById(link.dataset.featuredTarget)?.scrollIntoView({behavior:"smooth",block:"start"});
+  });
 });
 
 fetch("./data/products.json",{cache:"no-store"})
