@@ -1,0 +1,6 @@
+YOROZU AI RELAY TEST 002
+
+This file is only for testing the Work PR trigger.
+No production behavior should change.
+
+Expected review result: harmless test-only text file.
