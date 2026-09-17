@@ -6,76 +6,481 @@
 <meta name="description" content="よろず便利商店の商品棚">
 <title>よろず便利商店｜商品棚</title>
 <style>
+:root{
+  --forest:#1d2a22;
+  --paper:#f7f2e7;
+  --paper-deep:#efe5d1;
+  --ink:#18211c;
+  --muted:#756e63;
+  --line:#c9bda8;
+  --line-dark:#a99b84;
+  --rust:#8b4529;
+  --sage:#8ea08a;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:#f7f7f5;color:#111}
-.wrap{max-width:960px;margin:0 auto;padding:24px 16px 48px}
-header{margin-bottom:22px}
-h1{font-size:28px;margin:0 0 8px}
-.lead{font-size:14px;line-height:1.7;color:#666;margin:0}
-.notice{margin-top:14px;background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:10px 12px;font-size:12px;color:#666}
-.filters{display:flex;gap:8px;overflow-x:auto;margin:0 0 16px;padding:0 0 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+html{background:var(--forest)}
+body{
+  margin:0;
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",YuGothic,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--forest);
+  color:var(--ink);
+}
+button,a{font:inherit}
+.site{
+  width:min(1080px,100%);
+  margin:0 auto;
+  background:var(--paper);
+  min-height:100vh;
+  box-shadow:0 0 0 1px rgba(255,255,255,.08);
+}
+.top-band{height:30px;background:var(--forest)}
+.brand{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:28px;
+  padding:38px 44px 30px;
+  border-bottom:1px solid var(--line);
+}
+.brand-copy{display:grid;grid-template-columns:30px 1fr;gap:16px;align-items:start}
+.brand-mark{position:relative;width:28px;height:28px;margin-top:5px}
+.brand-mark i{
+  position:absolute;
+  display:block;
+  width:7px;
+  height:19px;
+  bottom:2px;
+  background:var(--sage);
+}
+.brand-mark i:nth-child(1){left:1px;transform:rotate(-16deg)}
+.brand-mark i:nth-child(2){left:11px;height:24px}
+.brand-mark i:nth-child(3){left:21px;transform:rotate(16deg)}
+.eyebrow{
+  margin:0 0 10px;
+  color:var(--muted);
+  font-size:12px;
+  letter-spacing:.17em;
+}
+h1{
+  margin:0;
+  font-size:30px;
+  line-height:1.3;
+  letter-spacing:.04em;
+  font-weight:700;
+}
+.lead{
+  grid-column:1/-1;
+  max-width:690px;
+  margin:16px 0 0 46px;
+  font-size:14px;
+  line-height:2;
+}
+.shelf-number{
+  min-width:58px;
+  padding-top:4px;
+  color:var(--rust);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:11px;
+  line-height:1.15;
+  letter-spacing:.13em;
+  text-align:right;
+  text-transform:uppercase;
+}
+.shelf-number strong{display:block;margin-top:4px;font-size:17px;font-weight:400}
+.featured{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:20px;
+  align-items:end;
+  padding:22px 44px 24px;
+  background:var(--paper-deep);
+  border-bottom:1px solid var(--line);
+}
+.featured-label{
+  margin:0 0 8px;
+  color:var(--rust);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+.featured-product{
+  display:inline-flex;
+  flex-wrap:wrap;
+  gap:5px 11px;
+  align-items:baseline;
+  padding-bottom:4px;
+  border-bottom:1px solid var(--line-dark);
+  color:var(--ink);
+  font-size:18px;
+  font-weight:700;
+  line-height:1.55;
+  letter-spacing:.02em;
+  text-decoration:none;
+}
+.featured-product:hover,.featured-product:focus-visible{color:var(--rust)}
+.featured-number{
+  color:var(--rust);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:.12em;
+  white-space:nowrap;
+}
+.featured-comment{
+  margin:8px 0 0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.7;
+  letter-spacing:.04em;
+}
+.featured-side{
+  display:grid;
+  gap:11px;
+  justify-items:end;
+}
+.featured-byline{
+  margin:0;
+  color:var(--muted);
+  font-size:11px;
+  letter-spacing:.08em;
+  white-space:nowrap;
+}
+.featured-jump{
+  padding-bottom:2px;
+  border-bottom:1px solid var(--rust);
+  color:var(--rust);
+  font-size:12px;
+  letter-spacing:.06em;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.featured-jump::after{content:" ↓"}
+.featured-jump:hover,.featured-jump:focus-visible{color:var(--ink);border-color:var(--ink)}
+.filters{
+  display:flex;
+  align-items:stretch;
+  gap:0;
+  overflow-x:auto;
+  padding:0 44px;
+  border-bottom:1px solid var(--line);
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
 .filters::-webkit-scrollbar{display:none}
-.filter-btn{flex:0 0 auto;min-height:44px;border:1px solid #d8d8d4;border-radius:999px;padding:10px 14px;background:#fff;color:#333;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
-.filter-btn[aria-pressed="true"]{background:#111;border-color:#111;color:#fff}
-.filter-btn:focus-visible{outline:3px solid #9cc2ff;outline-offset:2px}
-.grid{display:grid;grid-template-columns:1fr;gap:16px}
-.card{background:#fff;border:1px solid #e8e8e8;border-radius:18px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.03)}
-.image{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid #eee;padding:16px}
-.image img{width:100%;height:100%;object-fit:contain;display:block}
-.body{padding:16px}
-.tag{display:inline-block;font-size:11px;background:#f0f0ed;border-radius:999px;padding:5px 8px;margin-bottom:9px;color:#555}
-h2{font-size:19px;line-height:1.45;margin:0 0 8px}
-.desc{font-size:14px;line-height:1.75;color:#555;margin:0 0 16px}
-.btn{display:block;text-align:center;text-decoration:none;background:#111;color:#fff;font-weight:700;border-radius:12px;padding:14px 16px}
-footer{padding-top:28px;text-align:center;color:#777;font-size:11px;line-height:1.7}
-@media(min-width:720px){
-  .grid{grid-template-columns:repeat(3,1fr)}
-  .card{display:flex;flex-direction:column}
-  .body{display:flex;flex-direction:column;flex:1}
-  .desc{flex:1}
+.filter-btn{
+  position:relative;
+  flex:0 0 auto;
+  min-height:58px;
+  border:0;
+  padding:3px 21px 0;
+  background:transparent;
+  color:var(--muted);
+  font-size:13px;
+  letter-spacing:.05em;
+  cursor:pointer;
+}
+.filter-btn:first-child{padding-left:8px;padding-right:27px}
+.filter-btn::after{
+  content:"";
+  position:absolute;
+  right:20px;
+  bottom:-1px;
+  left:20px;
+  height:2px;
+  background:transparent;
+}
+.filter-btn:first-child::after{left:0;right:19px}
+.filter-btn[aria-pressed="true"]{color:var(--rust);font-weight:700}
+.filter-btn[aria-pressed="true"]::after{background:var(--rust)}
+.filter-btn:focus-visible{outline:2px solid var(--rust);outline-offset:-5px}
+.shelf-heading{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:20px;
+  padding:24px 44px 20px;
+  border-bottom:1px solid var(--line);
+}
+.section-kicker{
+  margin:0 0 5px;
+  color:var(--muted);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:11px;
+  letter-spacing:.22em;
+}
+.shelf-heading h2{margin:0;font-size:23px;line-height:1.35;letter-spacing:.04em}
+.item-count{
+  margin:0 0 3px;
+  color:var(--muted);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:11px;
+  letter-spacing:.06em;
+  white-space:nowrap;
+}
+.products{padding:0 44px}
+.product{
+  display:grid;
+  grid-template-columns:minmax(180px,32%) 1fr;
+  gap:30px;
+  padding:28px 0;
+  border-bottom:1px solid var(--line);
+  scroll-margin-top:20px;
+}
+.product-media{
+  position:relative;
+  aspect-ratio:1/1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#f0eadf;
+}
+.product-media img{width:100%;height:100%;object-fit:contain;display:block}
+.product-number{
+  position:absolute;
+  left:10px;
+  bottom:8px;
+  color:rgba(247,242,231,.82);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:10px;
+  letter-spacing:.13em;
+  text-shadow:0 1px 4px rgba(0,0,0,.55);
+}
+.product-body{display:flex;min-width:0;flex-direction:column}
+.product-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  padding:2px 0 9px;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.5;
+  letter-spacing:.08em;
+  border-bottom:1px solid var(--line);
+}
+.product-meta span:last-child{text-align:right}
+.product h3{
+  margin:11px 0 9px;
+  font-size:19px;
+  line-height:1.5;
+  letter-spacing:.02em;
+}
+.product-desc{
+  margin:0 0 15px;
+  color:#665f55;
+  font-size:13px;
+  line-height:1.85;
+}
+.staff-note{
+  margin:0 0 11px;
+  padding:7px 10px;
+  border-left:1px solid var(--line-dark);
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.75;
+  letter-spacing:.04em;
+}
+.staff-note:empty{display:none}
+.product-link{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-top:auto;
+  padding:13px 0 4px;
+  border-top:1px dotted var(--line-dark);
+  color:var(--ink);
+  font-size:12px;
+  letter-spacing:.06em;
+  text-decoration:none;
+}
+.product-link::after{content:"↗";color:var(--rust);font-size:17px;line-height:1}
+.product-link:hover,.product-link:focus-visible{color:var(--rust)}
+.notice{
+  margin:0;
+  padding:18px 44px 0;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.75;
+}
+.load-error{padding:30px 0;color:var(--muted);font-size:13px}
+footer{
+  padding:28px 44px 38px;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.8;
+  letter-spacing:.04em;
+}
+@media(max-width:680px){
+  .top-band{height:24px}
+  .brand{gap:16px;padding:28px 22px 24px}
+  .brand-copy{grid-template-columns:26px 1fr;gap:12px}
+  .brand-mark{transform:scale(.86);transform-origin:left top}
+  .eyebrow{font-size:10px;letter-spacing:.13em}
+  h1{font-size:25px}
+  .lead{margin:13px 0 0 38px;font-size:13px;line-height:1.85}
+  .shelf-number{min-width:40px;font-size:9px}
+  .shelf-number strong{font-size:14px}
+  .featured{grid-template-columns:1fr;padding:18px 22px 19px}
+  .featured-product{font-size:16px}
+  .featured-side{display:flex;align-items:center;justify-content:space-between;width:100%;gap:16px}
+  .featured-byline{text-align:left}
+  .filters{padding:0 22px}
+  .filter-btn{min-height:53px;padding-right:16px;padding-left:16px;font-size:12px}
+  .filter-btn:first-child{padding-left:3px;padding-right:21px}
+  .filter-btn::after{right:14px;left:14px}
+  .filter-btn:first-child::after{left:0;right:14px}
+  .shelf-heading{padding:20px 22px 16px}
+  .shelf-heading h2{font-size:20px}
+  .products{padding:0 22px}
+  .product{grid-template-columns:minmax(112px,40%) 1fr;gap:16px;padding:20px 0}
+  .product-meta{display:block;padding-top:0;font-size:8px}
+  .product-meta span{display:block}
+  .product-meta span:last-child{margin-top:3px;text-align:left}
+  .product h3{margin:8px 0 6px;font-size:15px;line-height:1.45}
+  .product-desc{
+    display:-webkit-box;
+    overflow:hidden;
+    margin-bottom:8px;
+    font-size:10px;
+    line-height:1.7;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:3;
+  }
+  .product-link{padding-top:9px;font-size:10px}
+  .product-link::after{font-size:14px}
+  .notice{padding:16px 22px 0}
+  footer{padding:24px 22px 32px}
+}
+@media(max-width:390px){
+  .product{grid-template-columns:40% 1fr;gap:13px}
+  .product h3{font-size:14px}
 }
 </style>
 </head>
 <body>
-<main class="wrap">
-<header>
-<h1>よろず便利商店</h1>
-<p class="lead">Instagramで紹介した便利グッズを、見つけやすくまとめています。</p>
-<div class="notice">PR：当ページにはアフィリエイト広告を利用しています。現在はWeb商品棚の実運用テスト中です。</div>
-</header>
-<nav class="filters" aria-label="商品カテゴリ">
-  <button class="filter-btn" type="button" data-category="all" aria-pressed="true">すべて</button>
-  <button class="filter-btn" type="button" data-category="desk" aria-pressed="false">デスク・仕事</button>
-  <button class="filter-btn" type="button" data-category="gadget" aria-pressed="false">充電・ガジェット</button>
-  <button class="filter-btn" type="button" data-category="home" aria-pressed="false">キッチン・暮らし</button>
-  <button class="filter-btn" type="button" data-category="outdoor" aria-pressed="false">外出・アウトドア</button>
-</nav>
-<section id="products" class="grid"></section>
-<footer>商品情報・価格・在庫状況はリンク先で最新情報をご確認ください。<br>© よろず便利商店</footer>
+<main class="site">
+  <div class="top-band" aria-hidden="true"></div>
+  <header class="brand">
+    <div class="brand-copy">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <div>
+        <p class="eyebrow">暮らしの道具を、ひとつずつ。</p>
+        <h1>よろず便利商店</h1>
+      </div>
+    </div>
+    <div class="shelf-number" aria-label="棚番号37">棚<strong>37</strong></div>
+    <p class="lead">便利なだけで終わらない、使うたびに少し気分がよくなる道具を集めています。</p>
+  </header>
+
+  <section class="featured" aria-labelledby="featured-title">
+    <div>
+      <p id="featured-title" class="featured-label">本日の店員のおすすめ</p>
+      <a class="featured-product" href="#shelf-01" data-featured-target="shelf-01">
+        <span class="featured-number">棚 01</span>
+        <span>サンワ 3in1充電スタンド 700-WLC006</span>
+      </a>
+      <p class="featured-comment">「出張先、コンセント足りなくない？」</p>
+    </div>
+    <div class="featured-side">
+      <p class="featured-byline">— Webデザイン担当</p>
+      <a class="featured-jump" href="#shelf-01" data-featured-target="shelf-01">棚01を見る</a>
+    </div>
+  </section>
+
+  <nav class="filters" aria-label="商品カテゴリ">
+    <button class="filter-btn" type="button" data-category="all" aria-pressed="true">すべて</button>
+    <button class="filter-btn" type="button" data-category="desk" aria-pressed="false">デスク・仕事</button>
+    <button class="filter-btn" type="button" data-category="gadget" aria-pressed="false">充電・ガジェット</button>
+    <button class="filter-btn" type="button" data-category="home" aria-pressed="false">キッチン・暮らし</button>
+    <button class="filter-btn" type="button" data-category="outdoor" aria-pressed="false">外出・アウトドア</button>
+  </nav>
+
+  <section aria-labelledby="shelf-title">
+    <div class="shelf-heading">
+      <div>
+        <p class="section-kicker">THE SHELF</p>
+        <h2 id="shelf-title">すべて</h2>
+      </div>
+      <p class="item-count"><span id="visible-count">0</span> items / <span id="total-count">0</span></p>
+    </div>
+    <div id="products" class="products" aria-live="polite"></div>
+  </section>
+
+  <p class="notice">PR：当ページにはアフィリエイト広告を利用しています。</p>
+  <footer>商品情報・価格・在庫状況はリンク先で最新情報をご確認ください。<br>© よろず便利商店</footer>
 </main>
+
 <script>
 const root=document.getElementById("products");
 const filterButtons=[...document.querySelectorAll(".filter-btn")];
+const shelfTitle=document.getElementById("shelf-title");
+const visibleCount=document.getElementById("visible-count");
+const totalCount=document.getElementById("total-count");
+const categoryNames={
+  all:"すべて",
+  desk:"デスク・仕事",
+  gadget:"充電・ガジェット",
+  home:"キッチン・暮らし",
+  outdoor:"外出・アウトドア"
+};
 let allProducts=[];
+
+function escapeHtml(value){
+  return String(value).replace(/[&<>"']/g,character=>({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#039;"
+  })[character]);
+}
+
 function render(products){
-root.replaceChildren();
-products.forEach(p=>{
-  const card=document.createElement("article");
-  card.className="card";
-  card.innerHTML=`<div class="image"><img src="${p.image}" alt="${p.name}" loading="lazy"></div><div class="body"><span class="tag">${p.shop}</span><h2>${p.name}</h2><p class="desc">${p.short}</p><a class="btn" href="${p.url}" target="_blank" rel="sponsored noopener">商品を見る</a></div>`;
-  root.appendChild(card);
-});
+  root.replaceChildren();
+  products.forEach(product=>{
+    const originalIndex=allProducts.indexOf(product)+1;
+    const shelfId=`shelf-${String(originalIndex).padStart(2,"0")}`;
+    const article=document.createElement("article");
+    article.className="product";
+    article.id=shelfId;
+    article.innerHTML=`
+      <div class="product-media">
+        <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy">
+        <span class="product-number">${String(originalIndex).padStart(2,"0")}</span>
+      </div>
+      <div class="product-body">
+        <div class="product-meta">
+          <span>${escapeHtml(categoryNames[product.category]||product.category)}</span>
+          <span>${escapeHtml(product.shop)}</span>
+        </div>
+        <h3>${escapeHtml(product.name)}</h3>
+        <p class="product-desc">${escapeHtml(product.short)}</p>
+        <p class="staff-note" data-handwriting-slot="product"></p>
+        <a class="product-link" href="${escapeHtml(product.url)}" target="_blank" rel="sponsored noopener">商品を見る</a>
+      </div>`;
+    root.appendChild(article);
+  });
+  visibleCount.textContent=products.length;
 }
 
 function selectCategory(category){
   filterButtons.forEach(button=>{
     button.setAttribute("aria-pressed",String(button.dataset.category===category));
   });
+  shelfTitle.textContent=categoryNames[category]||categoryNames.all;
   render(category==="all"?allProducts:allProducts.filter(product=>product.category===category));
 }
 
 filterButtons.forEach(button=>{
   button.addEventListener("click",()=>selectCategory(button.dataset.category));
+});
+
+document.querySelectorAll("[data-featured-target]").forEach(link=>{
+  link.addEventListener("click",event=>{
+    event.preventDefault();
+    selectCategory("all");
+    document.getElementById(link.dataset.featuredTarget)?.scrollIntoView({behavior:"smooth",block:"start"});
+  });
 });
 
 fetch("./data/products.json",{cache:"no-store"})
@@ -85,11 +490,12 @@ fetch("./data/products.json",{cache:"no-store"})
   })
   .then(products=>{
     allProducts=products;
+    totalCount.textContent=products.length;
     selectCategory("all");
   })
   .catch(error=>{
     console.error(error);
-    root.innerHTML='<p class="notice">商品情報を読み込めませんでした。時間をおいて再度お試しください。</p>';
+    root.innerHTML='<p class="load-error">商品情報を読み込めませんでした。時間をおいて再度お試しください。</p>';
   });
 </script>
 </body>
