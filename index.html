@@ -368,7 +368,7 @@ footer{
         <h1>よろず便利商店</h1>
       </div>
     </div>
-    <div class="shelf-number" aria-label="第37号商品棚">第<strong>37</strong>号商品棚</div>
+    <div class="shelf-number" aria-label="商品数">商品<strong id="header-product-count">0</strong>点</div>
     <p class="lead">便利なだけで終わらない、使うたびに少し気分がよくなる道具を集めています。</p>
   </header>
 
@@ -416,6 +416,7 @@ const filterButtons=[...document.querySelectorAll(".filter-btn")];
 const shelfTitle=document.getElementById("shelf-title");
 const visibleCount=document.getElementById("visible-count");
 const totalCount=document.getElementById("total-count");
+const headerProductCount=document.getElementById("header-product-count");
 const categoryNames={
   all:"すべて",
   desk:"デスク・仕事",
@@ -491,6 +492,7 @@ fetch("./data/products.json",{cache:"no-store"})
   .then(products=>{
     allProducts=products;
     totalCount.textContent=products.length;
+    headerProductCount.textContent=products.length;
     selectCategory("all");
   })
   .catch(error=>{
