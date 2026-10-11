@@ -438,5 +438,45 @@
     "url": "https://px.a8.net/svt/ejp?a8mat=4BAB1D+9VFSXE+5A3M+BW8O2&a8ejpredirect=https://www.brightdiy.jp/products/nosehairtrimmerset",
     "shop": "公式サイト",
     "category": "home"
+  },
+  {
+    "name": "Smart B-Note Pro",
+    "short": "DIGIPENシリーズの手書きメモ運用に使えるスマートノート。紙に書く感覚を残しながら、デジタル連携する文房具として使えます。",
+    "image": "https://www.brightdiy.jp/cdn/shop/products/0_B-Note-Pro_real_800x.png?v=1631461102",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4BAB1D+9VFSXE+5A3M+BW8O2&a8ejpredirect=https://www.brightdiy.jp/products/digipen4-bnotepro",
+    "shop": "公式サイト",
+    "category": "desk"
+  },
+  {
+    "name": "PIN-Master 2.0 オフラインパスワード管理ツール",
+    "short": "クラウドやスマホ連携を使わず、本体の物理ボタンでパスワードを記録・検索できるカードサイズの管理ツール。オフラインで持ち歩けます。",
+    "image": "https://www.brightdiy.jp/cdn/shop/files/240314_SPP_6447_01_800x.jpg?v=1738747530",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4BAB1D+9VFSXE+5A3M+BW8O2&a8ejpredirect=https://www.brightdiy.jp/products/pinmaster2",
+    "shop": "公式サイト",
+    "category": "desk"
+  },
+  {
+    "name": "JIMIBOX X1-H 多機能電動洗浄ツールセット",
+    "short": "家のさまざまな汚れに使える電動洗浄ツールセット。掃除場所に合わせて使い分けやすく、日常の清掃をまとめて扱えます。",
+    "image": "https://www.brightdiy.jp/cdn/shop/products/1_9976dcef-abc3-432a-b3a3-d5b28f1821c5_800x.png?v=1683009870",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4BAB1D+9VFSXE+5A3M+BW8O2&a8ejpredirect=https://www.brightdiy.jp/products/jimiboxx1h",
+    "shop": "公式サイト",
+    "category": "home"
+  },
+  {
+    "name": "ZERA SONIC 2Way音波ブラシセット",
+    "short": "音波歯ブラシと歯間ブラシをまとめ、ケース内でUVクリーナーと乾燥を行えるオールインワンの口腔ケアセット。外出や旅行にも持ち出せます。",
+    "image": "https://cdn.shopify.com/s/files/1/0566/2271/0958/files/Service_6_month_d4cf65c9-3ee6-4c92-a136-9384f89123a1_2048x2048.png?v=1712226476",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4BAB1D+9VFSXE+5A3M+BW8O2&a8ejpredirect=https://www.brightdiy.jp/products/zerasonic",
+    "shop": "公式サイト",
+    "category": "home"
+  },
+  {
+    "name": "HOTO DUO 懐中電灯兼ランタン",
+    "short": "懐中電灯・作業灯・ムードランタンなど13種類の照明モードを備えた充電式ライト。吊り下げやマグネット固定にも対応し、アウトドアや防災に使えます。",
+    "image": "https://cdn.shopify.com/s/files/1/0566/2271/0958/files/SERVICE2000px_d9db44b3-8308-412b-8140-a462121a81c0_1024x1024.png?v=1703818812",
+    "url": "https://px.a8.net/svt/ejp?a8mat=4BAB1D+9VFSXE+5A3M+BW8O2&a8ejpredirect=https://www.brightdiy.jp/products/hoto-duo",
+    "shop": "公式サイト",
+    "category": "outdoor"
   }
 ]
