@@ -1,0 +1,3 @@
+TEST-ID: YOROZU-AI-RELAY-002
+Purpose: automatic PR review trigger verification.
+Production impact: none.
