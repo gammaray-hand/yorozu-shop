@@ -235,6 +235,9 @@ h1{
   background:#f0eadf;
 }
 .product-media img{width:100%;height:100%;object-fit:contain;display:block}
+.product-image-fallback{display:none;padding:16px;text-align:center;color:var(--muted);font-size:12px;line-height:1.6}
+.product-media.image-failed img{display:none}
+.product-media.image-failed .product-image-fallback{display:block}
 .product-number{
   position:absolute;
   left:10px;
@@ -447,6 +450,7 @@ function render(products){
     article.innerHTML=`
       <div class="product-media">
         <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy">
+        <span class="product-image-fallback">画像を表示できません</span>
         <span class="product-number">${String(originalIndex).padStart(2,"0")}</span>
       </div>
       <div class="product-body">
@@ -459,6 +463,10 @@ function render(products){
         <p class="staff-note" data-handwriting-slot="product"></p>
         <a class="product-link" href="${escapeHtml(product.url)}" target="_blank" rel="sponsored noopener">商品を見る</a>
       </div>`;
+    const image=article.querySelector(".product-media img");
+    image.addEventListener("error",()=>{
+      article.querySelector(".product-media").classList.add("image-failed");
+    });
     root.appendChild(article);
   });
   visibleCount.textContent=products.length;
