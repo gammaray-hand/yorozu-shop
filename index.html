@@ -450,7 +450,7 @@ function render(products){
     article.innerHTML=`
       <div class="product-media">
         <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy">
-        <span class="product-image-fallback" aria-hidden="true">画像を表示できません</span>
+        <span class="product-image-fallback">画像を表示できません</span>
         <span class="product-number">${String(originalIndex).padStart(2,"0")}</span>
       </div>
       <div class="product-body">
