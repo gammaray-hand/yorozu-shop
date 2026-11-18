@@ -1,0 +1,39 @@
+name: Yorozu batch audit offline PoC
+on:
+  pull_request:
+    paths:
+      - 'tools/yorozu-batch/**'
+      - '.github/workflows/yorozu-batch-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run unit tests
+        run: python -m unittest discover -s tools/yorozu-batch -p 'test_*.py' -v
+      - name: Process synthetic 100-row input
+        run: python tools/yorozu-batch/audit.py tools/yorozu-batch/fixtures/orders_100.csv tools/yorozu-batch/fixtures/master_6.csv _yorozu_batch_results
+      - name: Assert output counts
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('_yorozu_batch_results/検品サマリー.json').read_text(encoding='utf-8'))
+          assert (s['orders'],s['rows_needing_review'],s['issue_flags']) == (100,5,6),s
+          print('OK: 100 synthetic rows, 5 review rows, 6 flags')
+          PY
+      - name: Upload synthetic-only evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: yorozu-batch-audit-demo
+          path: _yorozu_batch_results/
+          retention-days: 7
